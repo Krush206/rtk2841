@@ -258,13 +258,9 @@ endif
 ARCH		?= $(SUBARCH)
 # RTK_patch: change toolchain path
 #CROSS_COMPILE	?= $(CONFIG_CROSS_COMPILE:"%"=%)
-CROSS_COMPILE	?= ../../system/tmp/toolchain/asdk-5.4.1-a53-EL-4.4-g2.23-a32nt-161027/bin//asdk-linux-
+#CROSS_COMPILE	?= ../../system/tmp/toolchain/asdk-5.4.1-a53-EL-4.4-g2.23-a32nt-161027/bin//asdk-linux-
 #CROSS_COMPILE	?= ../../system/tmp/toolchain/arm-lg115x-linux-gnueabi-4.8-2014.08-1-i686/bin/arm-linux-
 #CROSS_COMPILE	?= /usr/local/arm-lg115x-linux-gnueabi-4.8-2014.08-1-i686/bin/arm-linux-
-
-ifeq ($(ARCH),arm64)
-CROSS_COMPILE	:= ../../system/tmp/toolchain/asdk-5.4.1-a53-EL-4.4-g2.23-a64nt-160721/bin/asdk64-linux-
-endif
 
 # Architecture as present in compile.h
 UTS_MACHINE 	:= $(ARCH)
@@ -355,15 +351,15 @@ scripts/Kbuild.include: ;
 include scripts/Kbuild.include
 
 # Make variables (CC, etc...)
-AS		= $(CROSS_COMPILE)as
-LD		= $(CROSS_COMPILE)ld
-CC		= $(CROSS_COMPILE)gcc
-CPP		= $(CC) -E
-AR		= $(CROSS_COMPILE)ar
-NM		= $(CROSS_COMPILE)nm
-STRIP		= $(CROSS_COMPILE)strip
-OBJCOPY		= $(CROSS_COMPILE)objcopy
-OBJDUMP		= $(CROSS_COMPILE)objdump
+AS		= as
+LD		= ld
+CC		= gcc
+CPP		= g++
+AR		= ar
+NM		= nm
+STRIP		= strip
+OBJCOPY		= objcopy
+OBJDUMP		= objdump
 AWK		= awk
 GENKSYMS	= scripts/genksyms/genksyms
 INSTALLKERNEL  := installkernel
