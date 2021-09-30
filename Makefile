@@ -354,7 +354,7 @@ include scripts/Kbuild.include
 AS		= as
 LD		= ld
 CC		= gcc
-CPP		= g++
+CPP		= $(CC) -E
 AR		= ar
 NM		= nm
 STRIP		= strip
